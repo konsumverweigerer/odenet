@@ -7,8 +7,7 @@ import urllib2
 ilimap = dict(csv.reader(urllib2.urlopen(
     "https://raw.githubusercontent.com/globalwordnet/ili/master/ili-map-pwn30.tab"), delimiter='\t'))
 
-wn = ET.parse("deWordNet.xml")
-wnlex = wn.find("Lexicon")
+wnlex = ET.parse("deWordNet.xml").find("Lexicon")
 
 synset_map = dict(((x.attrib["id"], x.attrib["ili"])
                    for x in wnlex.findall("Synset")))
